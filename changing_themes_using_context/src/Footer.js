@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {ThemeContext} from './themeContext'
 
-function Footer(props){
+function Footer(){
     const {theme} = useContext(ThemeContext)
     return(
         <div className={`footerDiv ${theme}HeaderFooter ${theme}HeaderFooter`}>

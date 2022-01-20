@@ -7,9 +7,9 @@ import './stylesheet.css'
 function App(){
     return(
         <div>
-        <Header/>
-        <Main/>
-        <Footer/>
+            <Header/>
+            <Main/>
+            <Footer/>
         </div>
     )
 }

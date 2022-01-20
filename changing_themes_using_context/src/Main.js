@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {ThemeContext} from './themeContext'
 
-function Main(props){
+function Main(){
     const {theme, themeToggle} = useContext(ThemeContext)
     return(
         <div className={`main ${theme}Main ${theme}Main`}>

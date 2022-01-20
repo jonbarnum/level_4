@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {ThemeContext} from './themeContext'
 
-function Header(props){
+function Header(){
     const {theme} = useContext(ThemeContext)
     return(
         <span className={`header ${theme}HeaderFooter ${theme}HeaderFooter`}>
