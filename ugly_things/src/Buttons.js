@@ -2,7 +2,8 @@ import React, {useContext} from "react";
 import { ButtonContext } from "./buttonContex";
 
 function Buttons(){
-    const {previewActive, preview} = useContext(ButtonContext)
+    const {previewActive, preview, inputData, savedUglyPics} = useContext(ButtonContext)
+
     return(
         <div>
             <div className="buttonDiv">
@@ -12,10 +13,46 @@ function Buttons(){
                 >
                     Preview
                 </button>
-                <button className="button">Submit</button>
+            </div>
+            <div className="previewDiv">
+                {previewActive ? (
+                    <h1>
+                        {inputData.title}
+                    </h1>
+                ) : null}
+                {previewActive ? (
+                    <h2>
+                        {inputData.description}
+                    </h2>
+                ) : null}
+                {previewActive ? (
+                    <img
+                        className="image"
+                        src={inputData.imageURL}
+                        alt="user img"
+                    />
+                ) : null}
             </div>
             <div>
-                {previewActive ? (<h1>hello</h1>) : null}
+                {savedUglyPics.map((savedUglyPic) => {
+                    return(
+                        <div className="savedImgDiv">
+                            <div>
+                                <h1>{savedUglyPic.title}</h1>
+                                <h2>{savedUglyPic.description}</h2>
+                                <img
+                                    className="image"
+                                    src={savedUglyPic.imageURL}
+                                    alt="user img"
+                                />
+                            </div>
+                            <div>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
