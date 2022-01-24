@@ -5,7 +5,6 @@ function InputForm(){
     const {inputData, handleChange, handleSubmit} = useContext(ButtonContext)
     return(
         <div>
-
             <div className="formDiv">
                 <form 
                     className="form"

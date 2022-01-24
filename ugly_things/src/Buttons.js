@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ButtonContext } from "./buttonContex";
 
 function Buttons(){
-    const {previewActive, preview, inputData, savedUglyPics} = useContext(ButtonContext)
+    const {previewActive, preview, inputData, savedUglyPics, editActive, handleEditClick} = useContext(ButtonContext)
 
     return(
         <div>
@@ -34,9 +34,9 @@ function Buttons(){
                 ) : null}
             </div>
             <div>
-                {savedUglyPics.map((savedUglyPic) => {
+                {savedUglyPics.map((savedUglyPic, index) => {
                     return(
-                        <div className="savedImgDiv">
+                        <div key={index} id={index} className="savedImgDiv">
                             <div>
                                 <h1>{savedUglyPic.title}</h1>
                                 <h2>{savedUglyPic.description}</h2>
@@ -47,8 +47,39 @@ function Buttons(){
                                 />
                             </div>
                             <div>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <button onClick={handleEditClick}>Edit</button>
+                            </div>
+                            <div>
+                                {editActive ? (
+                                    <div>
+                                        <form>
+                                            <input
+                                                type='text'
+                                                value={inputData.title}
+                                                name='title'
+                                                minLength='3'
+                                                // onChange={handleChange}
+                                                placeholder='Title'
+                                                className="inputForm"
+                                                required
+                                            />
+                                            <input
+                                                type='text'
+                                                value={inputData.description}
+                                                name='description'
+                                                minLength='3'
+                                                // onChange={handleChange}
+                                                placeholder='Description'
+                                                className="inputForm"
+                                                required
+                                            />
+                                            <div>
+                                                <button>Delete</button>
+                                                <button>Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                ): null}
                             </div>
                         </div>
                     )
