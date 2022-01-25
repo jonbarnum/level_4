@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ButtonContext } from "./buttonContex";
 
 function Buttons(){
-    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit} = useContext(ButtonContext)
+    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit, handleDelete} = useContext(ButtonContext)
 
     return(
         <div>
@@ -52,7 +52,7 @@ function Buttons(){
                             <div>
                                 {savedUglyPic.editState.editActive ? (
                                     <div>
-                                        <form onSubmit={handleEditSubmit}>
+                                        <form onSubmit={(event) => handleEditSubmit(event, index, savedUglyPic.id)}>
                                             <input
                                                 type='text'
                                                 value={savedUglyPic.editState.title}
@@ -74,7 +74,7 @@ function Buttons(){
                                                 required
                                             />
                                             <div>
-                                                <button>Delete</button>
+                                                <button onClick={(event) => handleDelete(event, index)}>Delete</button>
                                                 <button>Submit</button>
                                             </div>
                                         </form>

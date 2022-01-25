@@ -78,17 +78,25 @@ function ButtonContextProvider(props){
         ]))
     }
 
-    function handleEditSubmit(event){
+    function handleEditSubmit(event, index, id){
         event.preventDefault()
-        // const newTitle = editText.titleEditText;
-        // const newDescription = editText.titleEditText
+        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
+        savedImage.title = savedImage.editState.title
+        savedImage.description = savedImage.editState.description
 
-        setInputData({
-            // title: newTitle,
-            // description: newDescription
-        })
+        setSavedUglyPics((prevState) => ([
+            ...prevState.slice(0, index),
+            savedImage,
+            ...prevState.slice(index + 1)
+        ]))
+    }
 
-        setPreviewActive(true)
+    function handleDelete(event, index){
+        event.preventDefault()
+        setSavedUglyPics((prevState) => ([
+            ...prevState.slice(0, index),
+            ...prevState.slice(index + 1)
+        ]))
     }
 
     return(
@@ -101,7 +109,8 @@ function ButtonContextProvider(props){
                 handleSubmit,
                 handleEditClick,
                 handleEditText,
-                handleEditSubmit
+                handleEditSubmit,
+                handleDelete
             }}
         >
             {props.children}
