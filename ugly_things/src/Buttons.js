@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ButtonContext } from "./buttonContex";
 
 function Buttons(){
-    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit, handleDelete} = useContext(ButtonContext)
+    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit, handleDelete, loading} = useContext(ButtonContext)
 
     return(
         <div>
@@ -28,10 +28,15 @@ function Buttons(){
                 {previewActive ? (
                     <img
                         className="image"
-                        src={inputData.imageURL}
+                        src={inputData.imgUrl}
                         alt="user img"
                     />
                 ) : null}
+            </div>
+            <div>
+                {loading ? (
+                    <h1>Loading!!!</h1>
+                ): null}
             </div>
             <div>
                 {savedUglyPics.map((savedUglyPic, index) => {
@@ -42,7 +47,7 @@ function Buttons(){
                                 <h2>{savedUglyPic.description}</h2>
                                 <img
                                     className="image"
-                                    src={savedUglyPic.imageURL}
+                                    src={savedUglyPic.imgUrl}
                                     alt="user img"
                                 />
                             </div>

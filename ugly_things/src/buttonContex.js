@@ -1,13 +1,16 @@
 import React, {useState} from "react";
+// import axios, { Axios } from "axios";
+import Axios_post from "./Axios_post";
+
 const ButtonContext = React.createContext()
-let idIncrementor = 0
+// let idIncrementor = 0
 
 function ButtonContextProvider(props){
     const [previewActive, setPreviewActive] = useState(false)
     const [savedUglyPics, setSavedUglyPics] = useState([])
     const [inputData, setInputData] = useState({ 
         title: '',
-        imageURL: '',
+        imgUrl: '',
         description: '',
         id: '',
         editState: {
@@ -16,6 +19,7 @@ function ButtonContextProvider(props){
             editActive: false,
         }
     })
+    const [loading, setLoading] = useState(false)
 
     function preview(event){
         event.preventDefault();
@@ -29,24 +33,43 @@ function ButtonContextProvider(props){
     }
 
     function handleSubmit(event){
-        event.preventDefault()
-        idIncrementor++
-        setPreviewActive(false)
-        setInputData((prevState) => ({
-            ...prevState,
-            id: idIncrementor,
-            title: '',
-            imageURL: '',
-            description: '',
-            editState: {
-                title: prevState.title,
-                description: prevState.description
-            }
-        }))
-        setSavedUglyPics(prevUglyPic => ([
-            ...prevUglyPic, 
-            inputData,
-        ]))
+        event.preventDefault();
+        // idIncrementor++;
+        setPreviewActive(false);
+        // const newInputData = {
+        //     id: idIncrementor,
+        //     title: '',
+        //     imgUrl: '',
+        //     description: '',
+        //     editState: {
+        //         title: '',
+        //         description: ''
+        //     }
+        // };
+        // const newUglyPic = inputData;
+
+        setLoading(true)
+        Axios_post(inputData, setLoading, setSavedUglyPics, setInputData)
+        // axios.post('https://api.vschool.io/jonathanbarnum/thing', newUglyPic)
+        //     .then(response => {
+        //         setInputData((prevState) => ({
+        //                 ...prevState,
+        //                 title: '',
+        //                 imgUrl: '',
+        //                 description: '',
+        //                 newInputData
+        //             }));
+        //             setSavedUglyPics((prevState) => ([
+        //                 ...prevState,
+        //                 newUglyPic
+        //             ]));
+        //             console.log(response.data);
+        //             setLoading(false)
+        //         })
+        //     .catch(error => 
+        //         console.log(error),
+        //         setLoading(false)
+        //         )
     }
 
     function handleEditClick(index, id){
@@ -110,7 +133,8 @@ function ButtonContextProvider(props){
                 handleEditClick,
                 handleEditText,
                 handleEditSubmit,
-                handleDelete
+                handleDelete,
+                loading
             }}
         >
             {props.children}

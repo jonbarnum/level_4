@@ -26,11 +26,11 @@ function InputForm(){
                     />
                     <input
                         type='text'
-                        value={inputData.imageURL}
-                        name='imageURL'
+                        value={inputData.imgUrl}
+                        name='imgUrl'
                         minLength='3'
                         // onChange={(event) => {  
-                        //     setImageURL(event.value)
+                        //     setimgUrl(event.value)
                         // }}
                         onChange={handleChange}
                         placeholder='Image URL'
