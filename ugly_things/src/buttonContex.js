@@ -10,10 +10,10 @@ function ButtonContextProvider(props){
         imageURL: '',
         description: '',
         id: '',
-        editActive: false,
         editState: {
             title: '',
-            description: ''
+            description: '',
+            editActive: false,
         }
     })
 
@@ -39,8 +39,8 @@ function ButtonContextProvider(props){
             imageURL: '',
             description: '',
             editState: {
-                title: prevState.titleEditText,
-                description: prevState.descriptionEditText
+                title: prevState.title,
+                description: prevState.description
             }
         }))
         setSavedUglyPics(prevUglyPic => ([
@@ -51,7 +51,7 @@ function ButtonContextProvider(props){
 
     function handleEditClick(index, id){
         const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
-        savedImage.editActive = !savedImage.editActive
+        savedImage.editState.editActive = !savedImage.editState.editActive
         // [1,2,3,4]
         // 3 -> 7
         setSavedUglyPics((prevState) => ([
@@ -67,10 +67,15 @@ function ButtonContextProvider(props){
     }
 
 
-    function handleEditText(event){
-        event.preventDefault();
-        // const {name, value} = event.target;
-        // setEditText(prevData => ({...prevData, [name]: value}))
+    function handleEditText(event, index, id){
+        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
+        savedImage.editState[event.target.name] = event.target.value
+        
+        setSavedUglyPics((prevState) => ([
+            ...prevState.slice(0, index),
+            savedImage,
+            ...prevState.slice(index + 1)
+        ]))
     }
 
     function handleEditSubmit(event){

@@ -50,15 +50,15 @@ function Buttons(){
                                 <button onClick={() => handleEditClick(index, savedUglyPic.id)}>Edit</button>
                             </div>
                             <div>
-                                {savedUglyPic.editActive ? (
+                                {savedUglyPic.editState.editActive ? (
                                     <div>
                                         <form onSubmit={handleEditSubmit}>
                                             <input
                                                 type='text'
                                                 value={savedUglyPic.editState.title}
-                                                name='titleEditText'
+                                                name='title'
                                                 minLength='3'
-                                                onChange={handleEditText}
+                                                onChange={(event) => handleEditText(event, index, savedUglyPic.id)}
                                                 placeholder='Title'
                                                 className="inputForm"
                                                 required
@@ -66,9 +66,9 @@ function Buttons(){
                                             <input
                                                 type='text'
                                                 value={savedUglyPic.editState.description}
-                                                name='descriptionEditText'
+                                                name='description'
                                                 minLength='3'
-                                                onChange={handleEditText}
+                                                onChange={(event) => handleEditText(event, index, savedUglyPic.id)}
                                                 placeholder='Description'
                                                 className="inputForm"
                                                 required
