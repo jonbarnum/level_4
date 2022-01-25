@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { ButtonContext } from "./buttonContex";
 
 function Buttons(){
-    const {previewActive, preview, inputData, savedUglyPics, editActive, handleEditClick} = useContext(ButtonContext)
+    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit} = useContext(ButtonContext)
 
     return(
         <div>
@@ -36,7 +36,7 @@ function Buttons(){
             <div>
                 {savedUglyPics.map((savedUglyPic, index) => {
                     return(
-                        <div key={index} id={index} className="savedImgDiv">
+                        <div key={index} id={savedUglyPic.id} className="savedImgDiv">
                             <div>
                                 <h1>{savedUglyPic.title}</h1>
                                 <h2>{savedUglyPic.description}</h2>
@@ -47,28 +47,28 @@ function Buttons(){
                                 />
                             </div>
                             <div>
-                                <button onClick={handleEditClick}>Edit</button>
+                                <button onClick={() => handleEditClick(index, savedUglyPic.id)}>Edit</button>
                             </div>
                             <div>
-                                {editActive ? (
+                                {savedUglyPic.editActive ? (
                                     <div>
-                                        <form>
+                                        <form onSubmit={handleEditSubmit}>
                                             <input
                                                 type='text'
-                                                value={inputData.title}
-                                                name='title'
+                                                value={savedUglyPic.editState.title}
+                                                name='titleEditText'
                                                 minLength='3'
-                                                // onChange={handleChange}
+                                                onChange={handleEditText}
                                                 placeholder='Title'
                                                 className="inputForm"
                                                 required
                                             />
                                             <input
                                                 type='text'
-                                                value={inputData.description}
-                                                name='description'
+                                                value={savedUglyPic.editState.description}
+                                                name='descriptionEditText'
                                                 minLength='3'
-                                                // onChange={handleChange}
+                                                onChange={handleEditText}
                                                 placeholder='Description'
                                                 className="inputForm"
                                                 required
