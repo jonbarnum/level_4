@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from "react";
 import { ButtonContext } from "./buttonContex";
-import Axios_get from "./Axios_get";
 import axios from "axios";
 
 function Buttons(){
@@ -31,6 +30,13 @@ function Buttons(){
         // })
 
         axios.get('https://api.vschool.io/jonathanbarnum/thing').then((response) => {
+            response.data.forEach(item => {
+                item.editState = {
+                    title: '',
+                    description: '',
+                    editActive: false,
+                }
+            })
             setSavedUglyPics(response.data)
         })
         .catch((error) => console.log(error))
@@ -112,7 +118,7 @@ function Buttons(){
                                                 required
                                             />
                                             <div>
-                                                <button onClick={(event) => handleDelete(event, index)}>Delete</button>
+                                                <button onClick={(event) => handleDelete(event, index, savedUglyPic._id)}>Delete</button>
                                                 <button>Submit</button>
                                             </div>
                                         </form>

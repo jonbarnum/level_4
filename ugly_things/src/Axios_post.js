@@ -7,7 +7,8 @@ function Axios_post(inputData, setLoading, setSavedUglyPics, setInputData){
         description: '',
         editState: {
             title: '',
-            description: ''
+            description: '',
+            editActive: false
         }
     };
     const newUglyPic = inputData;
@@ -21,13 +22,13 @@ function Axios_post(inputData, setLoading, setSavedUglyPics, setInputData){
                 description: '',
                 newInputData
             }));
-            setSavedUglyPics((prevState) => ([
-                ...prevState,
-                newUglyPic
-            ]));
-            console.log(response.data);
-            setLoading(false)
-        })
+        setSavedUglyPics((prevState) => ([
+            ...prevState,
+            newUglyPic
+        ]));
+        console.log(response.data);
+        setLoading(false)
+    })
     .catch(error => 
         console.log(error),
         setLoading(false)

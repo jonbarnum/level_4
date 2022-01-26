@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import Axios_post from "./Axios_post";
 import Axios_put from "./Axios_put";
+import Axios_delete from "./Axios_delete";
 
 const ButtonContext = React.createContext()
 
@@ -23,7 +24,7 @@ function ButtonContextProvider(props){
 
     function preview(event){
         event.preventDefault();
-        setPreviewActive(prevPreview => prevPreview = !prevPreview)
+        setPreviewActive(prevPreview => !prevPreview)
     }
     
     function handleChange(event){
@@ -55,7 +56,6 @@ function ButtonContextProvider(props){
         //     7,
         //     ...[4]
         // ] //[1, 2, 7, 4]
-        console.log(savedImage)
     }
 
 
@@ -70,10 +70,10 @@ function ButtonContextProvider(props){
         ]))
     }
 
-    function handleEditSubmit(event){
+    function handleEditSubmit(event, index, _id){
         event.preventDefault()
         setLoading(true)
-        Axios_put(savedUglyPics, setSavedUglyPics, setLoading)
+        Axios_put(savedUglyPics, setSavedUglyPics, setLoading, _id, index)
         // const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
         // savedImage.title = savedImage.editState.title
         // savedImage.description = savedImage.editState.description
@@ -85,12 +85,13 @@ function ButtonContextProvider(props){
         // ]))
     }
 
-    function handleDelete(event, index){
+    function handleDelete(event, index, _id){
         event.preventDefault()
-        setSavedUglyPics((prevState) => ([
-            ...prevState.slice(0, index),
-            ...prevState.slice(index + 1)
-        ]))
+        // setSavedUglyPics((prevState) => ([
+        //     ...prevState.slice(0, index),
+        //     ...prevState.slice(index + 1)
+        // ]))
+        Axios_delete(setSavedUglyPics, setLoading, savedUglyPics, index, _id)
     }
 
     return(

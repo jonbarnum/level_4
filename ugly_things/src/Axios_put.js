@@ -1,14 +1,14 @@
 import axios from "axios";
 
-function Axios_put(savedUglyPics, setSavedUglyPics, index, id, setLoading){
-    const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === id) //how to get the id from api
-        savedImage.title = savedImage.editState.title //editState undefined
+function Axios_put(savedUglyPics, setSavedUglyPics, setLoading, _id, index){
+    const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id) 
+        savedImage.title = savedImage.editState.title 
         savedImage.description = savedImage.editState.description
 
-    axios.get('https://api.vschool.io/jonathanbarnum/thing/_id', savedImage)
+    axios.put(`https://api.vschool.io/jonathanbarnum/thing/${savedImage._id}`, savedImage)
         .then(response => {
             setSavedUglyPics((prevState) => ([
-                ...prevState.slice(0, index), // index or id from api
+                ...prevState.slice(0, index), 
                 savedImage,
                 ...prevState.slice(index + 1)
             ]));
