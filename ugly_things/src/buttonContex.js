@@ -1,9 +1,9 @@
+// import { Axios } from "axios";
 import React, {useState} from "react";
-// import axios, { Axios } from "axios";
 import Axios_post from "./Axios_post";
+import Axios_put from "./Axios_put";
 
 const ButtonContext = React.createContext()
-// let idIncrementor = 0
 
 function ButtonContextProvider(props){
     const [previewActive, setPreviewActive] = useState(false)
@@ -12,7 +12,7 @@ function ButtonContextProvider(props){
         title: '',
         imgUrl: '',
         description: '',
-        id: '',
+        _id: '',
         editState: {
             title: '',
             description: '',
@@ -34,46 +34,14 @@ function ButtonContextProvider(props){
 
     function handleSubmit(event){
         event.preventDefault();
-        // idIncrementor++;
-        setPreviewActive(false);
-        // const newInputData = {
-        //     id: idIncrementor,
-        //     title: '',
-        //     imgUrl: '',
-        //     description: '',
-        //     editState: {
-        //         title: '',
-        //         description: ''
-        //     }
-        // };
-        // const newUglyPic = inputData;
 
+        setPreviewActive(false);
         setLoading(true)
         Axios_post(inputData, setLoading, setSavedUglyPics, setInputData)
-        // axios.post('https://api.vschool.io/jonathanbarnum/thing', newUglyPic)
-        //     .then(response => {
-        //         setInputData((prevState) => ({
-        //                 ...prevState,
-        //                 title: '',
-        //                 imgUrl: '',
-        //                 description: '',
-        //                 newInputData
-        //             }));
-        //             setSavedUglyPics((prevState) => ([
-        //                 ...prevState,
-        //                 newUglyPic
-        //             ]));
-        //             console.log(response.data);
-        //             setLoading(false)
-        //         })
-        //     .catch(error => 
-        //         console.log(error),
-        //         setLoading(false)
-        //         )
     }
 
-    function handleEditClick(index, id){
-        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
+    function handleEditClick(index, _id){
+        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
         savedImage.editState.editActive = !savedImage.editState.editActive
         // [1,2,3,4]
         // 3 -> 7
@@ -87,11 +55,12 @@ function ButtonContextProvider(props){
         //     7,
         //     ...[4]
         // ] //[1, 2, 7, 4]
+        console.log(savedImage)
     }
 
 
-    function handleEditText(event, index, id){
-        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
+    function handleEditText(event, index, _id){
+        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
         savedImage.editState[event.target.name] = event.target.value
         
         setSavedUglyPics((prevState) => ([
@@ -101,17 +70,19 @@ function ButtonContextProvider(props){
         ]))
     }
 
-    function handleEditSubmit(event, index, id){
+    function handleEditSubmit(event){
         event.preventDefault()
-        const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic.id === id)
-        savedImage.title = savedImage.editState.title
-        savedImage.description = savedImage.editState.description
+        setLoading(true)
+        Axios_put(savedUglyPics, setSavedUglyPics, setLoading)
+        // const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
+        // savedImage.title = savedImage.editState.title
+        // savedImage.description = savedImage.editState.description
 
-        setSavedUglyPics((prevState) => ([
-            ...prevState.slice(0, index),
-            savedImage,
-            ...prevState.slice(index + 1)
-        ]))
+        // setSavedUglyPics((prevState) => ([
+        //     ...prevState.slice(0, index),
+        //     savedImage,
+        //     ...prevState.slice(index + 1)
+        // ]))
     }
 
     function handleDelete(event, index){
@@ -134,7 +105,8 @@ function ButtonContextProvider(props){
                 handleEditText,
                 handleEditSubmit,
                 handleDelete,
-                loading
+                loading,
+                setSavedUglyPics
             }}
         >
             {props.children}

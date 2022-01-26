@@ -1,8 +1,40 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import { ButtonContext } from "./buttonContex";
+import Axios_get from "./Axios_get";
+import axios from "axios";
 
 function Buttons(){
-    const {previewActive, preview, inputData, savedUglyPics, handleEditClick, handleEditText, handleEditSubmit, handleDelete, loading} = useContext(ButtonContext)
+    const {
+        previewActive, 
+        preview,
+        inputData,
+        savedUglyPics,
+        handleEditClick,
+        handleEditText,
+        handleEditSubmit,
+        handleDelete,
+        loading,
+        setSavedUglyPics
+    } = useContext(ButtonContext)
+
+    useEffect(() => {
+        // Axios_get().then((response) => {})//correct way example but this is coming in from Axios_get component
+        // const returnedPromise = Axios_get()//correct way example but this is coming in from Axios_get component
+        // returnedPromise.then(()=>{})
+
+        // const returnedPromise = Axios_get() //correct way example but this is coming in from Axios_get component
+        // returnedPromise.then((response) => {
+        //     setSavedUglyPics(response.data)
+        // })
+        // Axios_get().then((response) => { //correct way example but this is coming in from Axios_get component
+        //     setSavedUglyPics(response.data)
+        // })
+
+        axios.get('https://api.vschool.io/jonathanbarnum/thing').then((response) => {
+            setSavedUglyPics(response.data)
+        })
+        .catch((error) => console.log(error))
+    }, [])
 
     return(
         <div>
@@ -41,7 +73,7 @@ function Buttons(){
             <div>
                 {savedUglyPics.map((savedUglyPic, index) => {
                     return(
-                        <div key={index} id={savedUglyPic.id} className="savedImgDiv">
+                        <div key={index} id={savedUglyPic._id} className="savedImgDiv">
                             <div>
                                 <h1>{savedUglyPic.title}</h1>
                                 <h2>{savedUglyPic.description}</h2>
@@ -52,18 +84,19 @@ function Buttons(){
                                 />
                             </div>
                             <div>
-                                <button onClick={() => handleEditClick(index, savedUglyPic.id)}>Edit</button>
+                                <button onClick={() => handleEditClick(index, savedUglyPic._id)}>Edit</button>
                             </div>
                             <div>
-                                {savedUglyPic.editState.editActive ? (
+                            {/* savedUglyPic && savedUglyPic.editState && savedUglyPic.editState.editActvie */}
+                                {savedUglyPic?.editState?.editActive ? (
                                     <div>
-                                        <form onSubmit={(event) => handleEditSubmit(event, index, savedUglyPic.id)}>
+                                        <form onSubmit={(event) => handleEditSubmit(event, index, savedUglyPic._id)}>
                                             <input
                                                 type='text'
                                                 value={savedUglyPic.editState.title}
                                                 name='title'
                                                 minLength='3'
-                                                onChange={(event) => handleEditText(event, index, savedUglyPic.id)}
+                                                onChange={(event) => handleEditText(event, index, savedUglyPic._id)}
                                                 placeholder='Title'
                                                 className="inputForm"
                                                 required
@@ -73,7 +106,7 @@ function Buttons(){
                                                 value={savedUglyPic.editState.description}
                                                 name='description'
                                                 minLength='3'
-                                                onChange={(event) => handleEditText(event, index, savedUglyPic.id)}
+                                                onChange={(event) => handleEditText(event, index, savedUglyPic._id)}
                                                 placeholder='Description'
                                                 className="inputForm"
                                                 required
