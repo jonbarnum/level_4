@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from "react";
 import { ButtonContext } from "./buttonContex";
 import axios from "axios";
+import Axios_get from "./Axios_get";
 
 function Buttons(){
     const {
@@ -28,18 +29,7 @@ function Buttons(){
         // Axios_get().then((response) => { //correct way example but this is coming in from Axios_get component
         //     setSavedUglyPics(response.data)
         // })
-
-        axios.get('https://api.vschool.io/jonathanbarnum/thing').then((response) => {
-            response.data.forEach(item => {
-                item.editState = {
-                    title: '',
-                    description: '',
-                    editActive: false,
-                }
-            })
-            setSavedUglyPics(response.data)
-        })
-        .catch((error) => console.log(error))
+        Axios_get(setSavedUglyPics)
     }, [])
 
     return(

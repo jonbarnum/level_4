@@ -1,16 +1,12 @@
 import axios from "axios";
 
 //put async in front of function when using await 
-function Axios_get(){
+function Axios_get(setSavedUglyPics){
 
-    return axios.get('https://api.vschool.io/jonathanbarnum/thing')
-        .catch(error => console.log(error))
-
-    // try {
-    //     const response = await axios.get('https://api.vschool.io/jonathanbarnum/thing')
-    // } catch (err) {
-    //     console.log(err)
-    // }
+    axios.get('https://api.vschool.io/jonathanbarnum/thing').then((response) => {
+        setSavedUglyPics(response.data)
+    })
+    .catch((error) => console.log(error))
 }
 
 export default Axios_get

@@ -12,8 +12,8 @@ function Axios_post(inputData, setLoading, setSavedUglyPics, setInputData){
         }
     };
     const newUglyPic = inputData;
-
-    axios.post('https://api.vschool.io/jonathanbarnum/thing', newUglyPic)
+    delete newUglyPic._id
+    return axios.post("https://api.vschool.io/jonathanbarnum/thing", newUglyPic)
     .then(response => {
         setInputData((prevState) => ({
                 ...prevState,

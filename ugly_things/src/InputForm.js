@@ -8,7 +8,7 @@ function InputForm(){
             <div className="formDiv">
                 <form 
                     className="form"
-                    onSubmit={handleSubmit}
+                    onSubmit={(event) => handleSubmit(event)}
                 >
                     <input
                         type='text'

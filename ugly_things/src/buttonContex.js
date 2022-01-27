@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Axios_post from "./Axios_post";
 import Axios_put from "./Axios_put";
 import Axios_delete from "./Axios_delete";
+import Axios_get from "./Axios_get";
 
 const ButtonContext = React.createContext()
 
@@ -33,16 +34,18 @@ function ButtonContextProvider(props){
         setInputData(prevData => ({...prevData, [name]: value}))
     }
 
-    function handleSubmit(event){
+    async function handleSubmit(event){
         event.preventDefault();
 
         setPreviewActive(false);
         setLoading(true)
-        Axios_post(inputData, setLoading, setSavedUglyPics, setInputData)
+        await Axios_post(inputData, setLoading, setSavedUglyPics, setInputData)
+        Axios_get(setSavedUglyPics)
     }
 
     function handleEditClick(index, _id){
         const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
+        savedImage.editState = savedImage.editState || {}
         savedImage.editState.editActive = !savedImage.editState.editActive
         // [1,2,3,4]
         // 3 -> 7
