@@ -1,4 +1,3 @@
-// import { Axios } from "axios";
 import React, {useState} from "react";
 import Axios_post from "./Axios_post";
 import Axios_put from "./Axios_put";
@@ -77,23 +76,10 @@ function ButtonContextProvider(props){
         event.preventDefault()
         setLoading(true)
         Axios_put(savedUglyPics, setSavedUglyPics, setLoading, _id, index)
-        // const savedImage = savedUglyPics.find((savedUglyPic) => savedUglyPic._id === _id)
-        // savedImage.title = savedImage.editState.title
-        // savedImage.description = savedImage.editState.description
-
-        // setSavedUglyPics((prevState) => ([
-        //     ...prevState.slice(0, index),
-        //     savedImage,
-        //     ...prevState.slice(index + 1)
-        // ]))
     }
 
     function handleDelete(event, index, _id){
         event.preventDefault()
-        // setSavedUglyPics((prevState) => ([
-        //     ...prevState.slice(0, index),
-        //     ...prevState.slice(index + 1)
-        // ]))
         Axios_delete(setSavedUglyPics, setLoading, savedUglyPics, index, _id)
     }
 
