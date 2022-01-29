@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from "react";
 import { ButtonContext } from "./buttonContex";
-import axios from "axios";
 import Axios_get from "./Axios_get";
 
 function Buttons(){
