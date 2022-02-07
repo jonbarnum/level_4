@@ -23,6 +23,43 @@
     text-decoration: none;
 }
 
+.launchDiv{
+    background-color: #D5EBF5;
+}
+
+.launchHeader{
+    text-align: center;
+    margin: 0;
+    font-size: 40px;
+}
+
+.launchName{
+    text-align: center;
+}
+
+.launchInfo{
+    text-align: center;
+}
+
+.launchLocationDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.launchLocationContent{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.launchImage{
+    width: 400px;
+    height: 300px;
+}
+
+.horizonatlLine{
+    border: 3px solid #92A2A8;
+}
+
 .footerDiv{
     background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc2024_flame1_wfc3_ir_display.jpg');
     background-repeat: no-repeat;
