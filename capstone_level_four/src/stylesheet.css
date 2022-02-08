@@ -1,0 +1,74 @@
+.headerDiv{
+    background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc3318_potw2203a_0.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header{
+    color: #7DD0F5;
+    padding-top: 30px;
+    margin: 0;
+}
+
+.link{
+    color: #7DD0F5;
+    text-decoration: none;
+}
+
+.link:visited{
+    text-decoration: none;
+}
+
+.launchDiv{
+    background-color: #D5EBF5;
+}
+
+.homeTitle{
+    text-align: center;
+    background-color: #D5EBF5;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    background-color: #D5EBF5;
+}
+
+.buttons{
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+    margin: 0px 15px;
+}
+
+.linkDiv{
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+    background-color: #667175;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerDiv{
+    background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc2024_flame1_wfc3_ir_display.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footerContent{
+    color: #7DD0F5;
+    padding-top: 15px;
+    margin: 0;
+}
