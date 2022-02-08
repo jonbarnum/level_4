@@ -1,12 +1,19 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 
 function Astronauts(){
     return(
         <div className="buttonsContainer">
-            <button className="buttons">Current Astronauts</button>
-            <button className="buttons">Retired Astronauts</button>
-            <button className="buttons">Deceased Astronauts</button>
+            <div className="linkDiv">
+                <Link className="link" to='/activeAstronauts'>Active Astronauts</Link>
+            </div>
+            <div className="linkDiv">
+                <Link className="link" to='/retiredAstronauts'>Retired Astronauts</Link>
+            </div>
+            <div className="linkDiv">
+                <Link className="link" to='/deceasedAstronauts'>Deceased Astronauts</Link>
+            </div>
         </div>
     )
 }

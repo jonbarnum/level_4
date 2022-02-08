@@ -16,6 +16,7 @@
 .link{
     color: #7DD0F5;
     text-decoration: none;
+    text-align: center;
 }
 
 .link:visited{
@@ -24,6 +25,48 @@
 
 .launchDiv{
     background-color: #D5EBF5;
+}
+
+.launchHeader{
+    text-align: center;
+    margin: 0;
+    font-size: 40px;
+}
+
+.launchName{
+    text-align: center;
+}
+
+.launchInfo{
+    text-align: center;
+}
+
+.launchLocationDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.launchLocationContent{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.launchImage{
+    width: 400px;
+    height: 300px;
+}
+
+.blastOff{
+    text-align: center;
+}
+
+.time{
+    font-size: 25px;
+}
+
+.horizonatlLine{
+    border: 3px solid #92A2A8;
+    margin: 0;
 }
 
 .homeTitle{
@@ -56,6 +99,55 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.spaceStationContainer{
+    background-color: #92A2A8;
+}
+
+.spaceStationHeader{
+    text-align: center;
+    margin: 0;
+}
+
+.spaceStationContent{
+    text-align: center;
+}
+
+.spaceStationImgDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.spaceStationImg{
+    width: 350px;
+    height: 350px;
+}
+
+.spaceStationHorizonatlLine{
+    border: 3px solid #7DD0F5;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.astronautsHeader{
+    text-align: center;
+    background-color: #667175;
+    margin: 0;
+}
+
+.astronautsContent{
+    text-align: center;
+    background-color: #667175;
+}
+
+.astronautsName{
+    margin: 0;
+}
+
+.astronautHR{
+    border: 3px solid #D5EBF5;
+    margin: 0;
 }
 
 .footerDiv{

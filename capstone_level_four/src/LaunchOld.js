@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import {ButtonContext} from "./buttonContext"
 
-function LaunchNew(){
-    const {launchNewData} = useContext(ButtonContext)
+function LaunchOld(){
+    const {launchOldData} = useContext(ButtonContext)
     return(
         <div className="launchDiv">
-            <h1 className="launchHeader">Ready To launch</h1>
-            {launchNewData.map(launch => {
+            <h1 className="launchHeader">Past Launches</h1>
+            {launchOldData.map(launch => {
                 return(
                     <div key={launch.id}>
                         <h1 className="launchName">{launch.name}</h1>
@@ -27,7 +27,7 @@ function LaunchNew(){
                                     <br />
                                     {launch.pad.location.name}
                                 </h3>
-                                <h4 className="blastOff">Blast Off On</h4>
+                                <h4 className="blastOff">Blasted off</h4>
                                 <div>
                                     <h1>{launch.net}</h1>
                                 </div>
@@ -41,4 +41,4 @@ function LaunchNew(){
     )
 }
 
-export default LaunchNew
+export default LaunchOld
