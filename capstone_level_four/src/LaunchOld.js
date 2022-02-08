@@ -23,7 +23,7 @@ function LaunchOld(){
                                 />
                             </div>
                             <div className="launchLocationContent">
-                                <h3 className="blastOff">Launching From
+                                <h3 className="blastOff">Launched From
                                     <br />
                                     {launch.pad.location.name}
                                 </h3>
