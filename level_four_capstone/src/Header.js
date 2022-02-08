@@ -11,7 +11,7 @@ function Header(){
             </h1>
             <h1 className="header">
                 <Link to='/NasaImages' className="link">
-                    Nasa Images
+                    Space Stations
                 </Link>
             </h1>
             <h1 className="header" >

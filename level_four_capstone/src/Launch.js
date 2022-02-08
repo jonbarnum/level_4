@@ -1,6 +1,5 @@
 import React from "react";
 import {useState, useEffect} from 'react';
-import Timer from "./Timer";
 import axios from "axios";
 
 function Launch(){
@@ -14,7 +13,6 @@ function Launch(){
         .catch(error => console.log(error))
     }, [])
     
-    console.log(data)
 
     return(
         <div className="launchDiv">
@@ -36,11 +34,14 @@ function Launch(){
                                 />
                             </div>
                             <div className="launchLocationContent">
-                                <h3>Launching From
+                                <h3 className="blastOff">Launching From
                                     <br />
                                     {launch.pad.location.name}
                                 </h3>
-                                <h4>{launch.net}</h4>
+                                <h4 className="blastOff">Blast Off On</h4>
+                                <div>
+                                    <h1>{launch.net}</h1>
+                                </div>
                             </div>
                         </div>
                         <hr className="horizonatlLine"/>

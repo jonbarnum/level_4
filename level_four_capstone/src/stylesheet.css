@@ -56,8 +56,46 @@
     height: 300px;
 }
 
+.blastOff{
+    text-align: center;
+}
+
+.time{
+    font-size: 25px;
+}
+
 .horizonatlLine{
     border: 3px solid #92A2A8;
+    margin: 0;
+}
+
+.spaceStationContainer{
+    background-color: #92A2A8;
+}
+
+.spaceStationHeader{
+    text-align: center;
+    margin: 0;
+}
+
+.spaceStationContent{
+    text-align: center;
+}
+
+.spaceStationImgDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.spaceStationImg{
+    width: 350px;
+    height: 350px;
+}
+
+.spaceStationHorizonatlLine{
+    border: 3px solid #7DD0F5;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .footerDiv{
