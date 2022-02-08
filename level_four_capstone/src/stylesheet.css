@@ -98,6 +98,26 @@
     margin-bottom: 0px;
 }
 
+.astronautsHeader{
+    text-align: center;
+    background-color: #667175;
+    margin: 0;
+}
+
+.astronautsContent{
+    text-align: center;
+    background-color: #667175;
+}
+
+.astronautsName{
+    margin: 0;
+}
+
+.astronautHR{
+    border: 3px solid #D5EBF5;
+    margin: 0;
+}
+
 .footerDiv{
     background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc2024_flame1_wfc3_ir_display.jpg');
     background-repeat: no-repeat;

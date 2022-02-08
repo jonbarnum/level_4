@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Launch from "./Launch";
 import SpaceStations from "./SpaceStations";
-import FavPictures from "./FavPictures";
+import Astronauts from "./Astronauts";
 import Footer from "./Footer";
 import { Routes, Route } from "react-router-dom";
 import './stylesheet.css';
@@ -13,8 +13,8 @@ function App(){
             <Header />
             <Routes>
                 <Route path='/launch' element={<Launch />} />
-                <Route path='/nasaimages' element={<SpaceStations />} />
-                <Route path='/favpictures' element={<FavPictures />} />
+                <Route path='/spaceStations' element={<SpaceStations />} />
+                <Route path='/astronauts' element={<Astronauts />} />
             </Routes>
             <Footer />
         </div>

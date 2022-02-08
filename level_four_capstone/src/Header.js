@@ -10,13 +10,13 @@ function Header(){
                 </Link>
             </h1>
             <h1 className="header">
-                <Link to='/NasaImages' className="link">
+                <Link to='/SpaceStations' className="link">
                     Space Stations
                 </Link>
             </h1>
             <h1 className="header" >
-                <Link to='/FavPictures' className="link">
-                    Saved Images
+                <Link to='/Astronauts' className="link">
+                    Astronauts
                 </Link>
             </h1>
         </div>
