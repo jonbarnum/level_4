@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import {ButtonContext} from "./buttonContext"
+import {useNavigate} from "react-router-dom"
 
 
 function ActiveAstronauts(){
     const {activeAstronauts} = useContext(ButtonContext)
+    const navigate = useNavigate()
+
     return(
         <div>
             <h1 className="astronautsHeader">Current American Astronauts Heroes and Previous Astronauts who still work NASA</h1>
@@ -21,6 +24,11 @@ function ActiveAstronauts(){
                     </div>
                 )
             })}
+            <div className="navButtonDiv">
+                <button className="navButton" onClick={() => {navigate('/')}}>Go to Home</button>
+                <button className="navButton" onClick={() => {navigate('/launch')}}>Go to Space Launches</button>
+                <button className="navButton" onClick={() => {navigate('/spaceStations')}}>Go to Space Stations</button>
+            </div>
         </div>
     )
 }

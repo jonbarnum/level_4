@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import {ButtonContext} from "./buttonContext"
+import {useNavigate} from "react-router-dom"
 
 function LaunchNew(){
     const {launchNewData} = useContext(ButtonContext)
+    const navigate = useNavigate()
+
     return(
         <div className="launchDiv">
             <h1 className="launchHeader">Ready To launch</h1>
@@ -37,6 +40,11 @@ function LaunchNew(){
                     </div>
                 )
             })}
+            <div className="navButtonDiv">
+                <button className="navButton" onClick={() => {navigate('/')}}>Go to Home</button>
+                <button className="navButton" onClick={() => {navigate('/astronauts')}}>Go to Astronauts</button>
+                <button className="navButton" onClick={() => {navigate('/spaceStations')}}>Go to Space Stations</button>
+            </div>
         </div>
     )
 }

@@ -150,6 +150,16 @@
     margin: 0;
 }
 
+.navButtonDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.navButton{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .footerDiv{
     background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc2024_flame1_wfc3_ir_display.jpg');
     background-repeat: no-repeat;

@@ -7,7 +7,7 @@ function Launch(){
             <div className="linkDiv">
                 <Link 
                     className="link"
-                    to='/launchOld'
+                    to='/launch/launchOld'
                 >
                     Past Launches
                 </Link>
@@ -15,7 +15,7 @@ function Launch(){
             <div className="linkDiv">
                 <Link 
                     className="link" 
-                    to='/launchNew'
+                    to='/launch/launchNew'
                 >
                     Upcoming Launches
                 </Link>

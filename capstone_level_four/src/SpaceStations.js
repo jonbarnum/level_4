@@ -8,7 +8,7 @@ function SpaceStations(){
             <div className="linkDiv">
                 <Link 
                     className="link"
-                    to='/activeSpaceStations'
+                    to='/spaceStations/activeSpaceStations'
                 >
                     Orbiting Space <br/> Stations
                 </Link>
@@ -16,7 +16,7 @@ function SpaceStations(){
             <div className="linkDiv">
                 <Link 
                     className="link" 
-                    to='/deactivatedSpaceStations'
+                    to='/spaceStations/deactivatedSpaceStations'
                 >
                     Deorbiting Space Stations
                 </Link>

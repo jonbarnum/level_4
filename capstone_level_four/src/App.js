@@ -21,16 +21,16 @@ function App(){
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path='/launch' element={<Launch />} />
-                <Route path='/spaceStations' element={<SpaceStations />} />
-                <Route path='/astronauts' element={<Astronauts />} />
-                <Route path='/launchNew' element={<LaunchNew />} />
-                <Route path='/launchOld' element={<LaunchOld />} />
-                <Route path='/activeSpaceStations' element={<ActiveSpaceStations />} />
-                <Route path='/deactivatedSpaceStations' element={<DeactivedSpaceStations />} />
-                <Route path='/activeAstronauts' element={<ActiveAstronauts />} />
-                <Route path='/retiredAstronauts' element={<RetiredAstronauts />} />
-                <Route path='/deceasedAstronauts' element={<DeceasedAstronauts />} />
+                    <Route path='/launch' element={<Launch />} />
+                        <Route path='/launch/launchNew' element={<LaunchNew />} />
+                        <Route path='/launch/launchOld' element={<LaunchOld />} />
+                    <Route path='/spaceStations' element={<SpaceStations />} />
+                        <Route path='/spaceStations/activeSpaceStations' element={<ActiveSpaceStations />} />
+                        <Route path='/spaceStations/deactivatedSpaceStations' element={<DeactivedSpaceStations />} />
+                    <Route path='/astronauts' element={<Astronauts />} />
+                        <Route path='/astronauts/activeAstronauts' element={<ActiveAstronauts />} />
+                        <Route path='/astronauts/retiredAstronauts' element={<RetiredAstronauts />} />
+                        <Route path='/astronauts/deceasedAstronauts' element={<DeceasedAstronauts />} />
             </Routes>
             <Footer />
         </div>

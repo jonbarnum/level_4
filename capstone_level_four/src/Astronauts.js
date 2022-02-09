@@ -6,13 +6,13 @@ function Astronauts(){
     return(
         <div className="buttonsContainer">
             <div className="linkDiv">
-                <Link className="link" to='/activeAstronauts'>Active Astronauts</Link>
+                <Link className="link" to='/astronauts/activeAstronauts'>Active Astronauts</Link>
             </div>
             <div className="linkDiv">
-                <Link className="link" to='/retiredAstronauts'>Retired Astronauts</Link>
+                <Link className="link" to='/astronauts/retiredAstronauts'>Retired Astronauts</Link>
             </div>
             <div className="linkDiv">
-                <Link className="link" to='/deceasedAstronauts'>Deceased Astronauts</Link>
+                <Link className="link" to='/astronauts/deceasedAstronauts'>Deceased Astronauts</Link>
             </div>
         </div>
     )
