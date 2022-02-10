@@ -13,6 +13,21 @@
     margin: 0;
 }
 
+.headerLink{
+    color: #7DD0F5;
+    text-decoration: none;
+    text-align: center;
+}
+
+.rocketGifDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.rocketGif{
+    margin-top: 50px;
+}
+
 .link{
     color: #7DD0F5;
     text-decoration: none;
@@ -74,6 +89,11 @@
     background-color: #D5EBF5;
     margin: 0;
     padding-top: 20px;
+}
+
+.homeButtonContainer{
+    height: 700px;
+    background-color: #D5EBF5;
 }
 
 .buttonsContainer{
@@ -173,4 +193,152 @@
     color: #7DD0F5;
     padding-top: 15px;
     margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .headerDiv{
+        width: 100%;
+    }
+
+    .header{
+        color: #7DD0F5;
+        margin: 0;
+        text-align: center;
+        background-color:  #667175;
+    }
+
+    .headerLink{
+        color: #7DD0F5;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 30px;
+    }
+
+    .link{
+        color: #8D4041;
+        text-decoration: underline;
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 30px;
+    }
+    
+    .link:visited{
+        text-decoration: none;
+    }
+
+    .homeTitle{
+        text-align: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .rocketGif{
+        width: 100%;
+    }
+
+    .homeButtonContainer{
+        background-color:  #667175;
+        height: auto;
+    }
+
+    .footerDiv{
+        background-color:  #667175;
+    }
+    
+    .footerContent{
+        color: #7DD0F5;
+        text-align: center;
+        margin: 0;
+    }
+
+    .buttonsContainer{
+        display: flex;
+        justify-content: space-around;
+        background-color: #667175;
+    }
+
+    .linkDiv{
+        height: 100px;
+        margin-top: 20px;
+    }
+
+    .linkContainer{
+        display: flex;
+        justify-content: space-between;
+        background-color: #667175;
+    }
+
+    .navButtonDiv{
+        display: flex;
+        justify-content: center;
+    }
+
+    .astronautsContent{
+        text-align: center;
+        background-color: #667175;
+    }
+
+    .astronautsName{
+        margin: 0;
+    }
+
+    .astronautHR{
+        border: 3px solid #D5EBF5;
+        margin: 0;
+    }
+
+    .astronautsHeader{
+        text-align: center;
+        background-color: #667175;
+        margin: 0;
+    }
+
+    .launchDiv{
+        background-color: #D5EBF5;
+    }
+
+    .launchHeader{
+        text-align: center;
+        margin: 0;
+        font-size: 40px;
+    }
+    
+    .launchName{
+        text-align: center;
+    }
+    
+    .launchInfo{
+        text-align: center;
+    }
+    
+    .launchLocationDiv{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .launchLocationContent{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .launchImage{
+        width: 400px;
+        height: 300px;
+    }
+
+    .time{
+        font-size: 20px;
+    }
+
+    .launchTime{
+        font-size: 20px;
+    }
+
+    .horizonatlLine{
+        border: 3px solid #92A2A8;
+        margin: 0;
+    }
 }

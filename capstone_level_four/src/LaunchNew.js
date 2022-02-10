@@ -32,7 +32,7 @@ function LaunchNew(){
                                 </h3>
                                 <h4 className="blastOff">Blast Off On</h4>
                                 <div>
-                                    <h1>{launch.net}</h1>
+                                    <h1 className="launchTime">{launch.net}</h1>
                                 </div>
                             </div>
                         </div>
