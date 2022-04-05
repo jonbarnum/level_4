@@ -13,10 +13,10 @@ function LaunchNew(){
                 return(
                     <div key={launch.id}>
                         <h1 className="launchName">{launch.name}</h1>
-                        <h3 className="launchInfo">Mission Description: {launch.mission.description}</h3>
-                        <h4 className="launchInfo">Mission Type: {launch.mission.type}
+                        <h3 className="launchInfo">Mission Description: {launch.mission ? launch.mission.description : 'Anything going to space is a good mission'}</h3>
+                        <h4 className="launchInfo">Mission Type: {launch.mission ? launch.mission.type : `Doesn't Matter, Space is Awesome`}
                             <br />
-                            Orbit Type: {launch.mission.orbit.name}</h4>
+                            Orbit Type: {launch.name}</h4>
                         <div className="launchLocationDiv">
                             <div className="launchLocationContent">
                                 <img 

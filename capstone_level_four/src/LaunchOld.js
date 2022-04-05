@@ -6,6 +6,7 @@ function LaunchOld(){
     const {launchOldData} = useContext(ButtonContext)
     const navigate = useNavigate()
 
+
     return(
         <div className="launchDiv">
             <h1 className="launchHeader">Past Launches</h1>
@@ -16,7 +17,8 @@ function LaunchOld(){
                         <h3 className="launchInfo">Mission Description: {launch.mission.description}</h3>
                         <h4 className="launchInfo">Mission Type: {launch.mission.type}
                             <br />
-                            Orbit Type: {launch.mission.orbit.name}</h4>
+                            Orbit Type: {launch.mission.orbit ? launch.mission.orbit.name : 'Sending cool things in space'}
+                        </h4>
                         <div className="launchLocationDiv">
                             <div className="launchLocationContent">
                                 <img 
