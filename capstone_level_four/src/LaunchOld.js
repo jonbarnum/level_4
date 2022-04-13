@@ -14,10 +14,10 @@ function LaunchOld(){
                 return(
                     <div key={launch.id}>
                         <h1 className="launchName">{launch.name}</h1>
-                        <h3 className="launchInfo">Mission Description: {launch.mission.description}</h3>
-                        <h4 className="launchInfo">Mission Type: {launch.mission.type}
+                        <h3 className="launchInfo">Mission Description: {launch.mission ? launch.mission.description : 'Anything doing to space is a good mission'}</h3>
+                        <h4 className="launchInfo">Mission Type: {launch.mission ? launch.mission.type : `does it matter? it's going to space`}
                             <br />
-                            Orbit Type: {launch.mission.orbit ? launch.mission.orbit.name : 'Sending cool things in space'}
+                            Orbit Type: {launch.mission ? launch.mission.orbit.name : 'Sending cool things in space' }
                         </h4>
                         <div className="launchLocationDiv">
                             <div className="launchLocationContent">
